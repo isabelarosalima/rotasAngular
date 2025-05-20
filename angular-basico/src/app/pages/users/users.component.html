@@ -1,0 +1,5 @@
+<ul class="list-group">
+  <li class="mb-2" *ngFor="let user of users">
+    <button [routerLink]="'/users/' + user" class="btn btn-primary mb-2"> {{user}} </button>
+  </li>
+</ul>
