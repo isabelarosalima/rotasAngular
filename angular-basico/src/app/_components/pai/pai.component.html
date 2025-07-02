@@ -1,0 +1,10 @@
+<h2>Componente Pai</h2>
+<button (click)="enviarMensagemParaFilho()" class="btn btn-primary mb-2">Botão do pai</button>
+<p *ngIf="mensagemDoFilho">{{mensagemDoFilho}}</p>
+
+<hr>
+
+<app-filho
+ [mensagem]="mensagemDoPai"
+ (mensagemDoFilho)="receberMensagemDoFilho()">
+</app-filho>

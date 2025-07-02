@@ -9,6 +9,9 @@ import { FooterComponent } from './_components/footer/footer.component';
 import { BaseUiComponent } from './_components/base-ui/base-ui.component';
 import { UsersComponent } from './pages/users/users.component';
 import { UserComponent } from './pages/user/user.component';
+import { FilhoComponent } from './_components/filho/filho.component';
+import { PaiComponent } from './_components/pai/pai.component';
+import { AfilhamentoComponent } from './pages/afilhamento/afilhamento.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { UserComponent } from './pages/user/user.component';
     FooterComponent,
     BaseUiComponent,
     UsersComponent,
-    UserComponent
+    UserComponent,
+    FilhoComponent,
+    PaiComponent,
+    AfilhamentoComponent
   ],
   imports: [
     BrowserModule,
