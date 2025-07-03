@@ -1,4 +1,46 @@
-<h2>Componente Filho</h2>
-<button (click)="enviarMensagemParaOPai()" class="btn btn-primary mb-2">Botão do Filho</button>
-<p *ngIf="mensagem">{{ mensagem }}</p>
-
+<div class="d-flex justify-content-center align-items-center py-5">
+  <div class="form-container bg-light p-5 rounded shadow ">
+    <h3 class="text-center mb-4">Formulário Solicitação de Equipamentos</h3>
+    <form (ngSubmit)="enviarSolicitacao()" #form="ngForm">
+      <div class="mb-3">
+        <label class="form-label">Nome:</label>
+        <input
+          [(ngModel)]="nome"
+          name="nome"
+          required
+          class="form-control"
+          placeholder="Digite seu nome"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Equipamento:</label>
+        <select
+          [(ngModel)]="equipamento"
+          name="equipamento"
+          required
+          class="form-select"
+        >
+          <option value="">Selecione um equipamento</option>
+          <option value="computador">Computador</option>
+          <option value="headphone">Headphone</option>
+          <option value="mouse">Mouse</option>
+          <option value="teclado">Teclado</option>
+          <option value="suporte-notebook">Suporte Apoio Notebook</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Justificativa:</label>
+        <textarea
+          [(ngModel)]="justificativa"
+          name="justificativa"
+          required
+          class="form-control"
+          placeholder="Descreva o motivo da solicitação"
+        ></textarea>
+      </div>
+      <button type="submit" [disabled]="form.invalid" class="btn btn-primary w-100">
+        Enviar Solicitação
+      </button>
+    </form>
+  </div>
+</div>

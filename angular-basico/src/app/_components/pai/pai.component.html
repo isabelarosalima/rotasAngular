@@ -1,10 +1,36 @@
-<h2>Componente Pai</h2>
-<button (click)="enviarMensagemParaFilho()" class="btn btn-primary mb-2">Botão do pai</button>
-<p *ngIf="mensagemDoFilho">{{mensagemDoFilho}}</p>
+<h3 class="mb-4">Lista de Solicitações de Equipamento</h3>
 
-<hr>
+<table class="table table-striped table-bordered align-middle" *ngIf="solicitacoes.length > 0; else nenhumaSolicitacao">
+  <thead class="table-blue">
+    <tr>
+      <th>Nome</th>
+      <th>Aparelho</th>
+      <th>Justificativa</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let solicitacao of solicitacoes">
+      <td>{{ solicitacao.nome }}</td>
+      <td>{{ solicitacao.equipamento }}</td>
+      <td>{{ solicitacao.justificativa }}</td>
+      <td>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{ solicitacao.status || 'Pendente' }}
+          </button>
+          <ul class="dropdown-menu">
+           <li><button class="dropdown-item" (click)="alterarStatus(solicitacao, 'Pendente')">Pendente</button></li>
+           <li><button class="dropdown-item" (click)="alterarStatus(solicitacao, 'Aprovada')">Aprovada</button></li>
+           <li><button class="dropdown-item" (click)="alterarStatus(solicitacao, 'Recusada')">Recusada</button></li>
+           
+          </ul>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-<app-filho
- [mensagem]="mensagemDoPai"
- (mensagemDoFilho)="receberMensagemDoFilho()">
-</app-filho>
+<ng-template #nenhumaSolicitacao>
+  <p>Nenhuma solicitação registrada.</p>
+</ng-template>

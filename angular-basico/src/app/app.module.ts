@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms'; // ✅ Import necessário
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { UserComponent } from './pages/user/user.component';
 import { FilhoComponent } from './_components/filho/filho.component';
 import { PaiComponent } from './_components/pai/pai.component';
 import { AfilhamentoComponent } from './pages/afilhamento/afilhamento.component';
+import { SolicitacoesComponent } from './pages/solicitacoes/solicitacoes.component';
 
 @NgModule({
   declarations: [
@@ -24,11 +26,13 @@ import { AfilhamentoComponent } from './pages/afilhamento/afilhamento.component'
     UserComponent,
     FilhoComponent,
     PaiComponent,
-    AfilhamentoComponent
+    AfilhamentoComponent,
+    SolicitacoesComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
